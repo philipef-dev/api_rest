@@ -6,7 +6,7 @@
 
 - Usa os métodos HTTP corretamente:
 
-GET → Buscar dados
-POST → Criar dados
-PUT / PATCH → Atualizar dados
+GET → Buscar dados <br/>
+POST → Criar dados <br/>
+PUT / PATCH → Atualizar dados <br/>
 DELETE → Remover dados
