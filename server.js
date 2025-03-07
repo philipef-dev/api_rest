@@ -54,7 +54,7 @@ app.post("/user", async (req, res) => {
     });
     res.status(200).json({ message: "Usuário atualizado com sucesso", user });
   } catch {
-    res.status(500).json({ error: "Erro ao criar usário" });
+    res.status(500).json({ error: "Erro ao criar usuário" });
   }
 });
 
