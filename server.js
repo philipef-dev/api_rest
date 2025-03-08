@@ -1,11 +1,20 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
-import cors from 'cors';
+import cors from "cors";
 
 const app = express();
 const prisma = new PrismaClient();
 app.use(express.json());
-app.use(cors());
+
+const corsOptions = {
+  origin: 'http://localhost:4000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type'],
+};
+
+app.use(
+  cors(corsOptions)
+);
 
 app.get("/users", async (req, res) => {
   const allUsers = await prisma.user.findMany();
@@ -64,7 +73,9 @@ app.patch("/user/:id", async (req, res) => {
     const { name, email, age } = req.body;
 
     if (!id) {
-      return res.status(400).json({ error: "ID inválido. Deve ser um número válido" });
+      return res
+        .status(400)
+        .json({ error: "ID inválido. Deve ser um número válido" });
     }
 
     if (!name && !email && !age) {
