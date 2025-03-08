@@ -21,7 +21,7 @@ app.get("/users", async (req, res) => {
   res.status(200).json(allUsers);
 });
 
-app.delete("/user/:id", async (req, res) => {
+app.delete("/users/:id", async (req, res) => {
   const { id } = req.params;
 
   if (!id) {
