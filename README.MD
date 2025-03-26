@@ -8,5 +8,5 @@
 
 GET → Buscar dados <br/>
 POST → Criar dados <br/>
-PUT / PATCH → Atualizar dados <br/>
+PUTCH / PATCH → Atualizar dados <br/>
 DELETE → Remover dados
