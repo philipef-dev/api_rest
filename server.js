@@ -7,14 +7,12 @@ const prisma = new PrismaClient();
 app.use(express.json());
 
 const corsOptions = {
-  origin: 'http://localhost:4000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type'],
+  origin: "http://localhost:4000",
+  methods: ["GET", "POST", "PATCH", "DELETE"],
+  allowedHeaders: ["Content-Type"],
 };
 
-app.use(
-  cors(corsOptions)
-);
+app.use(cors(corsOptions));
 
 app.get("/users", async (req, res) => {
   const allUsers = await prisma.user.findMany();
@@ -45,7 +43,7 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
-app.post("/user", async (req, res) => {
+app.post("/users", async (req, res) => {
   try {
     const { name, email, age } = req.body;
     if (!name || !email || !age) {
@@ -67,7 +65,7 @@ app.post("/user", async (req, res) => {
   }
 });
 
-app.patch("/user/:id", async (req, res) => {
+app.patch("/users/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { name, email, age } = req.body;
